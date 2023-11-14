@@ -2,21 +2,21 @@ package view;
 
 
 public class Board {
-	private static final int PC = 0;
+	//private static final int PC = 0;
 
-	private static final int HUMAN = 0;
+	//private static final int HUMAN = 0;
 
 	private final int EMPTY		 = 0;
 
 	private final int BLACKTOWER = 7;
-	private final int BLACKKNIGHT = 3;
+	private final int BLACKKNIGHT= 3;
 	private final int BLACKBISHOP= 5;
 	private final int BLACKQUEEN = 9;
 	private final int BLACKKING  = 11;
 	private final int BLACKPAWN  = 1;
 	
 	private final int WHITETOWER = 8;
-	private final int WHITEKNIGHT = 4;
+	private final int WHITEKNIGHT= 4;
 	private final int WHITEBISHOP= 6;
 	private final int WHITEQUEEN = 10;
 	private final int WHITEKING  = 12;
@@ -97,11 +97,15 @@ public class Board {
 	public void playerMove(char origemA,int origemB,char origemC,int origemD){
 		//D 2 D 4 - 3(COLUM4) 6(ROW_7) - 
 		while(canMove(translatorLine(origemB),translatorCollum(origemA),translatorLine(origemD),translatorCollum(origemC))) {
-		//aSystem.out.printf("%d %d %d %d ",translatorCollum(origemA),translatorLine(origemB),translatorCollum(origemC),translatorLine(origemD));
+			System.out.printf("Moveu! Coluna origem:%d Linha Origem:%d Coluna Destino:%d Linha Destino:%d ",translatorCollum(origemA),translatorLine(origemB),translatorCollum(origemC),translatorLine(origemD));
 		
-		board[translatorLine(origemD)][translatorCollum(origemC)]=board[translatorLine(origemB)][translatorCollum(origemA)];
-		//canMove(b);
-		board[translatorLine(origemB)][translatorCollum(origemA)]=EMPTY;
+			//linha anterior estava comentada
+
+			board[translatorLine(origemD)][translatorCollum(origemC)]=board[translatorLine(origemB)][translatorCollum(origemA)];
+			//aqui que de fato move a peÃ§a da origem pro destino somente se o canMove deixar
+			//canMove(b);
+			//apaga a peÃ§a da posiÃ§Ã£o de origem
+			board[translatorLine(origemB)][translatorCollum(origemA)]=EMPTY;
 		break;
 		}
 	}
@@ -137,76 +141,83 @@ public class Board {
 		}
 	}
 	public void setupInicial() {
-		board[0][0]=7;
-		board[0][1]=3;
-		board[0][2]=5;
-		board[0][3]=9;
-		board[0][4]=11;
-		board[0][5]=5;
-		board[0][6]=3;// VALOR OROIGINAL 3
-		board[0][7]=7;
-		board[1][0]=1;
-		board[1][1]=1;
-		board[1][2]=1;
-		board[1][3]=1;
-		board[1][4]=1;
-		board[1][5]=1;
-		board[1][6]=1;
-		board[1][7]=1;
-		board[2][0]=0;
-		board[2][1]=0;
-		board[2][2]=0;
+		board[0][0]=BLACKTOWER;
+		board[0][1]=BLACKKNIGHT;
+		board[0][2]=BLACKBISHOP;
+		board[0][3]=BLACKQUEEN;
+		board[0][4]=BLACKKING;
+		board[0][5]=BLACKBISHOP;
+		board[0][6]=BLACKKNIGHT;// VALOR ORIGINAL 3
+		board[0][7]=BLACKTOWER;
+
+		board[1][0]=BLACKPAWN;
+		board[1][1]=BLACKPAWN;
+		board[1][2]=BLACKPAWN;
+		board[1][3]=BLACKPAWN;
+		board[1][4]=BLACKPAWN;
+		board[1][5]=BLACKPAWN;
+		board[1][6]=BLACKPAWN;
+		board[1][7]=BLACKPAWN;
+
+		board[2][0]=EMPTY;
+		board[2][1]=EMPTY;
+		board[2][2]=EMPTY;
 		board[2][3]=WHITEBISHOP;
-		board[2][4]=0;
-		board[2][5]=0;
-		board[2][6]=0;
-		board[2][7]=0;
-		board[3][0]=0;
-		board[3][1]=0;
-		board[3][2]=2;
-		board[3][3]=0;
-		board[3][4]=3;
-		board[3][5]=0;
-		board[3][6]=0;
-		board[3][7]=0;
-		board[4][0]=0;
-		board[4][1]=0;
-		board[4][2]=0;
-		board[4][3]=0;
-		board[4][4]=0;
-		board[4][5]=0;
-		board[4][6]=0;
-		board[4][7]=0;
-		board[5][0]=0;
-		board[5][1]=0;
-		board[5][2]=0;
-		board[5][3]=0;
-		board[5][4]=0;
-		board[5][5]=0;
-		board[5][6]=0;
-		board[5][7]=0;
-		board[6][0]=0;//VALOR ORIGINAL 2
-		board[6][1]=2;
-		board[6][2]=2;
-		board[6][3]=0;//VALOR ORIGINAL 2
-		board[6][4]=2;
-		board[6][5]=2;
-		board[6][6]=2;
-		board[6][7]=2;
-		board[7][0]=8;
-		board[7][1]=4;
-		board[7][2]=6;
-		board[7][3]=10;
-		board[7][4]=12;
-		board[7][5]=6;
-		board[7][6]=4;
-		board[7][7]=8;
+		board[2][4]=EMPTY;
+		board[2][5]=EMPTY;
+		board[2][6]=EMPTY;
+		board[2][7]=EMPTY;
+
+		board[3][0]=EMPTY;
+		board[3][1]=EMPTY;
+		board[3][2]=WHITEPAWN;
+		board[3][3]=EMPTY;
+		board[3][4]=BLACKKNIGHT;
+		board[3][5]=EMPTY;
+		board[3][6]=EMPTY;
+		board[3][7]=EMPTY;
+
+		board[4][0]=EMPTY;
+		board[4][1]=EMPTY;
+		board[4][2]=EMPTY;
+		board[4][3]=EMPTY;
+		board[4][4]=WHITEBISHOP;
+		board[4][5]=EMPTY;
+		board[4][6]=EMPTY;
+		board[4][7]=EMPTY;
+
+		board[5][0]=EMPTY;
+		board[5][1]=EMPTY;
+		board[5][2]=EMPTY;
+		board[5][3]=EMPTY;
+		board[5][4]=EMPTY;
+		board[5][5]=EMPTY;
+		board[5][6]=EMPTY;
+		board[5][7]=EMPTY;
+
+		board[6][0]=EMPTY;//VALOR ORIGINAL 2
+		board[6][1]=WHITEPAWN;
+		board[6][2]=WHITEPAWN;
+		board[6][3]=EMPTY;//VALOR ORIGINAL 2
+		board[6][4]=WHITEPAWN;
+		board[6][5]=WHITEPAWN;
+		board[6][6]=WHITEPAWN;
+		board[6][7]=WHITEPAWN;
+
+		board[7][0]=WHITETOWER;
+		board[7][1]=WHITEKNIGHT;
+		board[7][2]=WHITEBISHOP;
+		board[7][3]=WHITEQUEEN;
+		board[7][4]=WHITEKING;
+		board[7][5]=WHITEBISHOP;
+		board[7][6]=WHITEKNIGHT;
+		board[7][7]=WHITETOWER;
 		
 	}
-	
+	// IMPRIMINDO O TABULEIRO
 	public void playerView(boolean change){
 		
-		if(change){
+		if(change){//impressÃ£o do tabuleiro
 			System.out.printf("  _______________________\n");
 			System.out.print("8 ");
 			if(board[ROW_1][COLUMN_1] == EMPTY)         System.out.print("  |");
@@ -1056,46 +1067,6 @@ public class Board {
 			if(board[ROW_8][COLUMN_8] == WHITEKING)     System.out.print("WK|\n");
 			if(board[ROW_8][COLUMN_8] == WHITEPAWN)     System.out.print("WP|\n");
 			System.out.printf("  a  b  c  d  e  f  g  h\n");
-		}else{
-		
-			if(board[ROW_1][COLUMN_1] == 7) System.out.print(" a ");
-			if(board[ROW_1][COLUMN_1] == PC)    System.out.print("X ");
-			if(board[ROW_1][COLUMN_1] == HUMAN) System.out.print("O ");
-			
-			if(board[ROW_1][COLUMN_2] == EMPTY) System.out.print("  ");
-			if(board[ROW_1][COLUMN_2] == PC)    System.out.print("X ");
-			if(board[ROW_1][COLUMN_2] == HUMAN) System.out.print("O ");
-			
-			if(board[ROW_1][COLUMN_3] == EMPTY) System.out.print("  |\n");
-			if(board[ROW_1][COLUMN_3] == PC)    System.out.print("X |\n");
-			if(board[ROW_1][COLUMN_3] == HUMAN) System.out.print("O |\n");
-			
-			
-			if(board[ROW_2][COLUMN_1] == EMPTY) System.out.print("  ");
-			if(board[ROW_2][COLUMN_1] == PC)    System.out.print("X ");
-			if(board[ROW_2][COLUMN_1] == HUMAN) System.out.print("O ");
-			
-			if(board[ROW_2][COLUMN_2] == EMPTY) System.out.print("  ");
-			if(board[ROW_2][COLUMN_2] == PC)    System.out.print("X ");
-			if(board[ROW_2][COLUMN_2] == HUMAN) System.out.print("O ");
-			
-			if(board[ROW_2][COLUMN_3] == EMPTY) System.out.print("  |\n");
-			if(board[ROW_2][COLUMN_3] == PC)    System.out.print("X |\n");
-			if(board[ROW_2][COLUMN_3] == HUMAN) System.out.print("O |\n");
-			
-			
-			if(board[ROW_3][COLUMN_1] == EMPTY) System.out.print("  ");
-			if(board[ROW_3][COLUMN_1] == PC)    System.out.print("X ");
-			if(board[ROW_3][COLUMN_1] == HUMAN) System.out.print("O ");
-			
-			if(board[ROW_3][COLUMN_2] == EMPTY) System.out.print("  ");
-			if(board[ROW_3][COLUMN_2] == PC)    System.out.print("X ");
-			if(board[ROW_3][COLUMN_2] == HUMAN) System.out.print("O ");
-			
-			if(board[ROW_3][COLUMN_3] == EMPTY) System.out.print("  |\n");
-			if(board[ROW_3][COLUMN_3] == PC)    System.out.print("X |\n");
-			if(board[ROW_3][COLUMN_3] == HUMAN) System.out.print("O |\n\n");
-			
 		}
 	}
 
@@ -1142,40 +1113,43 @@ public class Board {
 			break;		
 	}
 }
+// VERIFICANDO MOVIMENTOS VÃLIDOS OU NÃƒO
 	private boolean canMove(int lineOrigin, int collumOrigin, int lineDestiny, int collumDestiny) {
 		switch(board[lineOrigin][collumOrigin]) {
-			case WHITETOWER://MOVIMENTO TORRE - SO FAR WORKING
-				//ifOriginEgualDestiny(lineOrigin, collumOrigin, lineDestiny, collumDestiny);
-				if((lineOrigin==lineDestiny)&&(collumOrigin==collumDestiny)) {// ORIGEM IGUAL DESTINO
+			case WHITETOWER://MOVIMENTO TORRE - SO FAR WORKING - continuar daqui
+				
+				if((lineOrigin==lineDestiny)&&(collumOrigin==collumDestiny)) {// CASO ORIGEM IGUAL DESTINO
 					erro1();
 					return false;
 				}
-				if((lineOrigin != lineDestiny)&&(collumOrigin != collumDestiny)) {// SÓ MOVIMENTA VERTICAL OU RETA
-					System.out.print("Movimento Inválido10");
+				if((lineOrigin != lineDestiny)&&(collumOrigin != collumDestiny)) {// SÃ³ MOVIMENTA VERTICAL OU HORIZONTAL
+					System.out.print("Movimento InvÃ¡lido 10.");
 					return false;
 				}
+				//NÃƒO PODE COMER PEÃ‡AS ALIADAS
 				if((board[lineDestiny][collumDestiny] == WHITEBISHOP)||(board[lineDestiny][collumDestiny] == WHITEKING)||(board[lineDestiny][collumDestiny] == WHITEKNIGHT)||(board[lineDestiny][collumDestiny] == WHITEPAWN)||(board[lineDestiny][collumDestiny] == WHITEQUEEN)||(board[lineDestiny][collumDestiny] == WHITETOWER)) {
 					erro3();
 					return false;
 				}
-				System.out.print("acontece???");//NÃO PODE COMER PEÇAS ALIADAS
+				//System.out.print("acontece???");
 	
 				if(lineOrigin==lineDestiny) {
+					System.out.print("movimento pra direita, TORRE");
 					if(collumOrigin>collumDestiny) {
 						int b = collumOrigin-collumDestiny;
-						for(int a = 1;a<b;a++) {//MOVIMENTO DA esqueda - direita SE O CAMINHO ESTÁ VAZIO
+						for(int a = 1;a<b;a++) {//MOVIMENTO DA esqueda - direita SE O CAMINHO ESTÃ VAZIO
 							System.out.printf("esq - DIR j=%d k=%d b=%d a=%d testando for i maior k \n",lineDestiny,collumDestiny,b,a);
 							if(board[lineDestiny][collumDestiny+a]!=EMPTY) {
-								System.out.print("Movimento Inválido 1");
+								System.out.print("Movimento InvÃ¡lido 1.");
 								return false;
 							}
 						}
-					}else {//MOVIMENTO DA  direita PRA ESQUERDA SE O CAMINHO ESTÁ VAZIO
+					}else {//MOVIMENTO DA  direita PRA ESQUERDA SE O CAMINHO ESTÃ VAZIO
 						int b = collumDestiny-collumOrigin;
 						for(int a = 1;a<b;a++) {
 							System.out.printf("DIR - ESQ ELSE j=%d k=%d b=%d a=%d testando for i menor k \n",lineDestiny,collumDestiny,b,a);
 							if(board[lineDestiny][collumDestiny-a]!=EMPTY) {
-								System.out.print("Movimento Inválido 2");
+								System.out.print("Movimento InvÃ¡lido 2");
 								return false;
 							}
 						}
@@ -1184,62 +1158,62 @@ public class Board {
 				if(collumOrigin==collumDestiny) {
 					if(lineOrigin>lineDestiny) {
 						int b = lineOrigin-lineDestiny;
-						for(int a = 1;a<b;a++) {//MOVIMENTO BAIXO PRA CIMA SE CAMINHO ESTÁ VAZIO
+						for(int a = 1;a<b;a++) {//MOVIMENTO BAIXO PRA CIMA SE CAMINHO ESTÃ VAZIO
 							System.out.printf("BAIXO cima j=%d k=%d b=%d a=%d testando for m maior j \n",lineDestiny,collumDestiny,b,a);
-							//System.out.printf("coteúdo da passagem =%d conteúdo do destino %d ",board[j][k-a],board[j][k]);
+							//System.out.printf("coteÃºdo da passagem =%d conteÃºdo do destino %d ",board[j][k-a],board[j][k]);
 							if(board[lineDestiny+a][collumDestiny]!=EMPTY) {
-								System.out.print("Movimento Inválido 3");
+								System.out.print("Movimento InvÃ¡lido 3");
 								return false;
 							}
 						}
 					}else {
 						int b = lineDestiny-lineOrigin;
-						for(int a = 1;a<b;a++) {//MOVIMENTO CIMA PRA BAIXO SE CAMINHO ESTÁ VAZIO
+						for(int a = 1;a<b;a++) {//MOVIMENTO CIMA PRA BAIXO SE CAMINHO ESTÃ VAZIO
 							System.out.printf("CIMA BAIXO else j=%d k=%d b=%d a=%d testando for m menor j \n",lineDestiny,collumDestiny,b,a);
-							System.out.printf("coteúdo da passagem =%d conteúdo do destino %d ",board[lineDestiny-a][collumDestiny],board[lineDestiny][collumDestiny]);
+							System.out.printf("coteÃºdo da passagem =%d conteÃºdo do destino %d ",board[lineDestiny-a][collumDestiny],board[lineDestiny][collumDestiny]);
 							if(board[lineDestiny-a][collumDestiny]!=EMPTY) {
-								System.out.print("Movimento Inválido 4");
+								System.out.print("Movimento InvÃ¡lido 4");
 								return false;
 							}
 						}
 					}
 				}
-				
-					System.out.printf("linhaorigem=%d colunaorigem=%d linha destino=%d coluna destino=%d",lineOrigin,collumOrigin,lineDestiny,collumDestiny);
+				System.out.printf("FINAL case WhiteTOwer linhaorigem=%d colunaorigem=%d linha destino=%d coluna destino=%d",lineOrigin,collumOrigin,lineDestiny,collumDestiny);
+				return true;//now working
 			case WHITEBISHOP:
 				if((lineOrigin==lineDestiny)&&(collumOrigin==collumDestiny)) {// ORIGEM IGUAL DESTINO
 					erro1();
 					return false;
 				}
-				if((lineOrigin==lineDestiny)||(collumOrigin==collumDestiny)) {// bispo só diagonal
+				if((lineOrigin==lineDestiny)||(collumOrigin==collumDestiny)) {// bispo sÃ³ diagonal
 					erro2();
 					return false;
 				}
 				if((board[lineDestiny][collumDestiny] == WHITEBISHOP)||(board[lineDestiny][collumDestiny] == WHITEKING)||(board[lineDestiny][collumDestiny] == WHITEKNIGHT)||(board[lineDestiny][collumDestiny] == WHITEPAWN)||(board[lineDestiny][collumDestiny] == WHITEQUEEN)||(board[lineDestiny][collumDestiny] == WHITETOWER)) {
-					erro3();
+					erro3();//nÃ£o comer peÃ§a aliada
 					return false;
 				}
 				//if(!(lineDestiny-))
-				if((lineOrigin>lineDestiny)&&collumOrigin<collumDestiny) {//subindo pra direita
+				if((lineOrigin>lineDestiny)&&(collumOrigin<collumDestiny)) {//subindo pra direita
 					if((lineOrigin-lineDestiny) != (collumDestiny-collumOrigin)) {
 						//System.out.printf("linhaorigem=%d coluna origem=%d linha destino=%d coluna destino=%d, cal1=%d cal2=%d resultado=%d ",lineOrigin,collumOrigin,lineDestiny,collumDestiny,(lineOrigin-lineDestiny),((-1*collumOrigin)-collumDestiny),((lineOrigin-lineDestiny) != ((-1*collumOrigin)-collumDestiny)));
 						erro2();
 						return false;
 					}	
 				}
-				if((lineOrigin>lineDestiny)&&collumOrigin>collumDestiny) {//subindo pra esquerda
+				if((lineOrigin>lineDestiny)&&(collumOrigin>collumDestiny)) {//subindo pra esquerda
 					if((lineOrigin-lineDestiny) != ((collumOrigin)-collumDestiny)) {
 						erro2();
 						return false;
 					}	
 				}
-				if((lineOrigin<lineDestiny)&&collumOrigin<collumDestiny) {
+				if((lineOrigin<lineDestiny)&&(collumOrigin<collumDestiny)) {//descendo
 					if((lineDestiny-lineOrigin) != (collumDestiny-collumOrigin)) {
 						erro2();
 						return false;
 					}	
 				}
-				if((lineOrigin<lineDestiny)&&collumOrigin>collumDestiny) {
+				if((lineOrigin<lineDestiny)&&(collumOrigin>collumDestiny)) {//descendo
 					if((lineDestiny-lineOrigin) != ((collumOrigin)-collumDestiny)) {
 						erro2();
 						return false;
@@ -1315,6 +1289,7 @@ public class Board {
 				}
 				
 				System.out.printf("linhaorigem=%d coluna origem=%d linha destino=%d coluna destino=%d",lineOrigin,collumOrigin,lineDestiny,collumDestiny);
+				return true;
 			case WHITEKNIGHT:
 				if((lineOrigin==lineDestiny)&&(collumOrigin==collumDestiny)) {// ORIGEM IGUAL DESTINO
 					erro1();
@@ -1330,7 +1305,8 @@ public class Board {
 					erro5();
 					return false;
 				}
-			case WHITEQUEEN:{
+				return true;
+			case WHITEQUEEN:
 				if((lineOrigin==lineDestiny)&&(collumOrigin==collumDestiny)) {// ORIGEM IGUAL DESTINO
 					erro1();
 					return false;
@@ -1371,13 +1347,13 @@ public class Board {
 					for(int a=1;a<b;a++) {
 						for(int c=1;c<d;c++) {
 							if((a==c)&&(board[lineDestiny+a][collumDestiny-c]!=0)) {
-								System.out.printf("linOri=%d colOri=%d linDest=%d colDest=%d, b=%d d=%d a=%d ",lineOrigin,collumOrigin,lineDestiny,collumDestiny,b,d,a);
+								System.out.printf("WB SD inside loop linOri=%d colOri=%d linDest=%d colDest=%d, b=%d d=%d a=%d ",lineOrigin,collumOrigin,lineDestiny,collumDestiny,b,d,a);
 								erro4();
 								return false;
 							}
 						}
 					}
-					System.out.printf("linOri=%d colOri=%d linDest=%d colDest=%d, b=%d d=%d a= ",lineOrigin,collumOrigin,lineDestiny,collumDestiny,b,d);
+					System.out.printf("WB SD outside loop linOri=%d colOri=%d linDest=%d colDest=%d, b=%d d=%d a= ",lineOrigin,collumOrigin,lineDestiny,collumDestiny,b,d);
 						//System.out.printf("linOri=%d colOri=%d linDest=%d colDest=%d, cal1=%d cal2=%d resultado=%d ",lineOrigin,collumOrigin,lineDestiny,collumDestiny,(lineOrigin-lineDestiny),((-1*collumOrigin)-collumDestiny),((lineOrigin-lineDestiny) != ((-1*collumOrigin)-collumDestiny)));
 						//return false;
 						
@@ -1388,13 +1364,13 @@ public class Board {
 						for(int c=1;c<d;c++) {
 							//System.out.printf("linOri=%d colOri=%d linDest=%d colDest=%d, b=%d d=%d a=%d ",lineOrigin,collumOrigin,lineDestiny,collumDestiny,b,d,a);
 							if((a==c)&&(board[lineDestiny+a][collumDestiny+c]!=0)) {
-								System.out.printf("linOri=%d colOri=%d linDest=%d colDest=%d, b=%d d=%d a=%d ",lineOrigin,collumOrigin,lineDestiny,collumDestiny,b,d,a);
+								System.out.printf("WB SE insidde loop linOri=%d colOri=%d linDest=%d colDest=%d, b=%d d=%d a=%d ",lineOrigin,collumOrigin,lineDestiny,collumDestiny,b,d,a);
 								erro4();
 								return false;
 							}
 						}
 					}
-					System.out.printf("linOri=%d colOri=%d linDest=%d colDest=%d, b=%d d=%d a= ",lineOrigin,collumOrigin,lineDestiny,collumDestiny,b,d);
+					System.out.printf("WB SE outsideloop linOri=%d colOri=%d linDest=%d colDest=%d, b=%d d=%d a= ",lineOrigin,collumOrigin,lineDestiny,collumDestiny,b,d);
 						//System.out.printf("linOri=%d colOri=%d linDest=%d colDest=%d, cal1=%d cal2=%d resultado=%d ",lineOrigin,collumOrigin,lineDestiny,collumDestiny,(lineOrigin-lineDestiny),((-1*collumOrigin)-collumDestiny),((lineOrigin-lineDestiny) != ((-1*collumOrigin)-collumDestiny)));
 						//return false;
 				
@@ -1403,7 +1379,7 @@ public class Board {
 					int b = lineDestiny-lineOrigin,d=collumDestiny-collumOrigin;
 					for(int a=1;a<b;a++) {
 						for(int c=1;c<d;c++) {
-							System.out.printf("789linOri=%d colOri=%d linDest=%d colDest=%d, b=%d d=%d a=%d c=%d\n",lineOrigin,collumOrigin,lineDestiny,collumDestiny,b,d,a,c);
+							System.out.printf("Loop WB BD linOri=%d colOri=%d linDest=%d colDest=%d, b=%d d=%d a=%d c=%d\n",lineOrigin,collumOrigin,lineDestiny,collumDestiny,b,d,a,c);
 							if((a==c)&&(board[lineDestiny-a][collumDestiny-c]!=0)) {
 								System.out.printf("linOri=%d colOri=%d linDest=%d colDest=%d, b=%d d=%d a=%d ",lineOrigin,collumOrigin,lineDestiny,collumDestiny,b,d,a);
 								erro4();
@@ -1411,7 +1387,7 @@ public class Board {
 							}
 						}
 					}
-					System.out.printf("linOri=%d colOri=%d linDest=%d colDest=%d, b=%d d=%d a= ",lineOrigin,collumOrigin,lineDestiny,collumDestiny,b,d);
+					System.out.printf("WB BD outside loop linOri=%d colOri=%d linDest=%d colDest=%d, b=%d d=%d a= ",lineOrigin,collumOrigin,lineDestiny,collumDestiny,b,d);
 						//System.out.printf("linOri=%d colOri=%d linDest=%d colDest=%d, cal1=%d cal2=%d resultado=%d ",lineOrigin,collumOrigin,lineDestiny,collumDestiny,(lineOrigin-lineDestiny),((-1*collumOrigin)-collumDestiny),((lineOrigin-lineDestiny) != ((-1*collumOrigin)-collumDestiny)));
 						//return false;
 				
@@ -1421,13 +1397,13 @@ public class Board {
 					for(int a=1;a<b;a++) {
 						for(int c=1;c<d;c++) {
 							if((a==c)&&(board[lineDestiny-a][collumDestiny+c]!=0)) {
-								System.out.printf("linOri=%d colOri=%d linDest=%d colDest=%d, b=%d d=%d a=%d ",lineOrigin,collumOrigin,lineDestiny,collumDestiny,b,d,a);
+								System.out.printf("WB BE inside loop linOri=%d colOri=%d linDest=%d colDest=%d, b=%d d=%d a=%d ",lineOrigin,collumOrigin,lineDestiny,collumDestiny,b,d,a);
 								erro4();
 								return false;
 							}
 						}
 					}
-					System.out.printf("linOri=%d colOri=%d linDest=%d colDest=%d, b=%d d=%d a= ",lineOrigin,collumOrigin,lineDestiny,collumDestiny,b,d);
+					System.out.printf("WB BE outside loop linOri=%d colOri=%d linDest=%d colDest=%d, b=%d d=%d a= ",lineOrigin,collumOrigin,lineDestiny,collumDestiny,b,d);
 						//System.out.printf("linOri=%d colOri=%d linDest=%d colDest=%d, cal1=%d cal2=%d resultado=%d ",lineOrigin,collumOrigin,lineDestiny,collumDestiny,(lineOrigin-lineDestiny),((-1*collumOrigin)-collumDestiny),((lineOrigin-lineDestiny) != ((-1*collumOrigin)-collumDestiny)));
 						//return false;
 				
@@ -1435,19 +1411,19 @@ public class Board {
 				if(lineOrigin==lineDestiny) {
 					if(collumOrigin>collumDestiny) {
 						int b = collumOrigin-collumDestiny;
-						for(int a = 1;a<b;a++) {//MOVIMENTO DA esqueda - direita SE O CAMINHO ESTÁ VAZIO
+						for(int a = 1;a<b;a++) {//MOVIMENTO DA esqueda - direita SE O CAMINHO ESTÃ VAZIO
 							System.out.printf("esq - DIR j=%d k=%d b=%d a=%d testando for i maior k \n",lineDestiny,collumDestiny,b,a);
 							if(board[lineDestiny][collumDestiny+a]!=EMPTY) {
-								System.out.print("Movimento Inválido 1");
+								System.out.print("Movimento InvÃ¡lido 1");
 								return false;
 							}
 						}
-					}else {//MOVIMENTO DA  direita PRA ESQUERDA SE O CAMINHO ESTÁ VAZIO
+					}else {//MOVIMENTO DA  direita PRA ESQUERDA SE O CAMINHO ESTÃ VAZIO
 						int b = collumDestiny-collumOrigin;
 						for(int a = 1;a<b;a++) {
 							System.out.printf("DIR - ESQ ELSE j=%d k=%d b=%d a=%d testando for i menor k \n",lineDestiny,collumDestiny,b,a);
 							if(board[lineDestiny][collumDestiny-a]!=EMPTY) {
-								System.out.print("Movimento Inválido 2");
+								System.out.print("Movimento InvÃ¡lido 2");
 								return false;
 							}
 						}
@@ -1456,9 +1432,9 @@ public class Board {
 				if(collumOrigin==collumDestiny) {
 					if(lineOrigin>lineDestiny) {
 						int b = lineOrigin-lineDestiny;
-						for(int a = 1;a<b;a++) {//MOVIMENTO BAIXO PRA CIMA SE CAMINHO ESTÁ VAZIO
+						for(int a = 1;a<b;a++) {//MOVIMENTO BAIXO PRA CIMA SE CAMINHO ESTÃ VAZIO
 							System.out.printf("BAIXO cima j=%d k=%d b=%d a=%d testando for m maior j \n",lineDestiny,collumDestiny,b,a);
-							//System.out.printf("coteúdo da passagem =%d conteúdo do destino %d ",board[j][k-a],board[j][k]);
+							//System.out.printf("coteÃºdo da passagem =%d conteÃºdo do destino %d ",board[j][k-a],board[j][k]);
 							if(board[lineDestiny+a][collumDestiny]!=EMPTY) {
 								erro4();
 								return false;
@@ -1466,18 +1442,18 @@ public class Board {
 						}
 					}else {
 						int b = lineDestiny-lineOrigin;
-						for(int a = 1;a<b;a++) {//MOVIMENTO CIMA PRA BAIXO SE CAMINHO ESTÁ VAZIO
+						for(int a = 1;a<b;a++) {//MOVIMENTO CIMA PRA BAIXO SE CAMINHO ESTÃ VAZIO
 							System.out.printf("CIMA BAIXO else j=%d k=%d b=%d a=%d testando for m menor j \n",lineDestiny,collumDestiny,b,a);
-							System.out.printf("coteúdo da passagem =%d conteúdo do destino %d ",board[lineDestiny-a][collumDestiny],board[lineDestiny][collumDestiny]);
+							System.out.printf("coteÃºdo da passagem =%d conteÃºdo do destino %d ",board[lineDestiny-a][collumDestiny],board[lineDestiny][collumDestiny]);
 							if(board[lineDestiny-a][collumDestiny]!=EMPTY) {
-								System.out.print("Movimento Inválido 4");
+								System.out.print("Movimento InvÃ¡lido 4");
 								return false;
 							}
 						}
 					}
 				}
-			}
-			case WHITEKING:{
+				return true;
+			case WHITEKING:
 				if((lineOrigin==lineDestiny)&&(collumOrigin==collumDestiny)) {// ORIGEM IGUAL DESTINO
 					erro1();
 					return false;
@@ -1490,35 +1466,35 @@ public class Board {
 					erro7();
 					return false;
 				}
-			}
+				return true;
 		}//fim do switch
 		return true;
 		
 	}
 	private void erro3() {
-		System.out.print("NÃO PODE COMER PEÇAS ALIADAS");
+		System.out.print("NÃƒO PODE COMER PEÃ‡AS ALIADAS");
 	}
 	//private void ifOriginEgualDestiny(int lineOrigin, int collumOrigin, int lineDestiny, int collumDestiny) {
 	//	if((lineOrigin==lineDestiny)&&(collumOrigin==collumDestiny)){// ORIGEM IGUAL DESTINO
-		//	System.out.print("Movimento Inválido 1");
+		//	System.out.print("Movimento InvÃ¡lido 1");
 			//break;}
 	private void erro1() {
-		System.out.print("origem deve ser difente do destino");
+		System.out.print("A origem deve ser difente do destino.");
 	}
 	private void erro2() {
-		System.out.print("bispo só diagonal");
+		System.out.print("O bispo sÃ³ diagonal");
 	}
 	private void erro4() {
-		System.out.print("O caminho não está livre");
+		System.out.print("O caminho nÃ£o estÃ¡ livre");
 	}
 	private void erro5() {
-		System.out.print("Só em L");
+		System.out.print("SÃ³ em L");
 	}
 	private void erro6() {
-		System.out.print("Não é diagonal ou vertical ou horizontal");
+		System.out.print("NÃ£o Ã© diagonal ou vertical ou horizontal");
 	}
 	private void erro7() {
-		System.out.print("Rei só move 1 quadrado");
+		System.out.print("Rei sÃ³ move 1 quadrado");
 	}
 	
 }

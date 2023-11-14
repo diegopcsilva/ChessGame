@@ -95,11 +95,11 @@ public boolean end(){
 		return true;
 	}
 	if (Engine.aiWin()) {
-		System.out.println("Voc� Perdeu.");
+		System.out.println("Você Perdeu.");
 		return true;
 	}
 	if (Engine.playerWin()) {
-		System.out.println("Voc� Ganhou.");
+		System.out.println("Você Ganhou.");
 		return true;
 	}
 return false;
@@ -109,15 +109,15 @@ return false;
 		return sc.next().charAt(0);
 	}
 	public int getOriginNumber() {
-		System.out.println("Escolha um n�mero, para selecionar a linha de origem (1-8)");	
+		System.out.println("Escolha um número, para selecionar a linha de origem (1-8)");	
 		return sc.nextInt();
 	}
 	public char getDestinyLetter() {
-		System.out.println("Escolha uma letra, para selecionar a coluna de origem (a-h)");
+		System.out.println("Escolha uma letra, para selecionar a coluna de destino (a-h)");
 		return sc.next().charAt(0);
 	}
 	public int getDestinyNumber() {
-		System.out.println("Escolha um n�mero, para selecionar a linha de origem (1-8)");	
+		System.out.println("Escolha um número, para selecionar a linha de destino (1-8)");	
 		return sc.nextInt();
 	}
 	
