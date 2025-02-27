@@ -15,10 +15,10 @@ public class Start {
 
 	public void start() {
 //		while(true){
-//			System.out.println("In�cio - Jogo da Velha");
+//			System.out.println("Início - Jogo da Velha");
 			sc = new Scanner(System.in);
 //			while(true){
-//				System.out.println("Quer come�ar? Se sim digite: 0. Se n�o digite: 1 ");
+//				System.out.println("Quer começar? Se sim digite: 0. Se não digite: 1 ");
 //				toStart = sc.nextInt();
 //				if( toStart == 0 || toStart == 1){
 //					if(toStart==0) start =true;
@@ -27,7 +27,7 @@ public class Start {
 //				}		
 //			}
 //			while(true){
-//				System.out.println("Quer ser X ou O? Se X, digite: true. Se n�o digite: false ");
+//				System.out.println("Quer ser X ou O? Se X, digite: true. Se não digite: false ");
 //				toPiece = sc.nextInt();
 //				if( toPiece == 0 || toPiece == 1){
 //					if(toStart==0) piece =true;
@@ -36,7 +36,7 @@ public class Start {
 //				}
 //			}
 //			while(true){
-//				System.out.println("Escolha o n�vel. Para f�cil, digite 0 , m�dio 1, d�ficil 2.");
+//				System.out.println("Escolha o nvel. Para fácil, digite 0 , médio 1, díficil 2.");
 //				level = sc.nextInt();
 //				if( level == 0 || level == 1 || level == 2) break;
 //				//GameMaster newGame = new GameMaster(start, piece, level);
